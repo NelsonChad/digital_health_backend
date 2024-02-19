@@ -26,6 +26,8 @@ import ListOfMedicines from '@/Components/ListOfMedicines/ListOfMedicines.vue'
             <!-- Conteúdo principal -->
             <div class="flex-1 bg-gray-200">
                  <Dashboard/>
+                 <!-- <Inventory/>-->
+                 <!-- <ListOfMedicines/>-->
             </div>
         </div>
     </div> 

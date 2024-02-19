@@ -14,21 +14,21 @@ import Sidebar from '@/Components/Sidebar/Sidebar.vue';
         <!-- Card 1 -->
         <div class="relative bg-white shadow-md rounded-md p-4 lg:w-64 h-44 md:w-64  h-22 border border-green-500 ">
           <h2 class="text-lg font-bold mb-2">Card 1</h2>
-          <p>Conteúdo do Card 1...</p>
+          <p>Card 1...</p>
           <div class="absolute bottom-0 left-0 w-full h-8 rounded-b-md bg-green-300 opacity-50 "></div>
         </div>
 
         <!-- Card 2 -->
         <div class="relative bg-white shadow-md rounded-md p-4 lg:w-64 h-44 md:w-64 h-22  border border-yellow-500 ">
           <h2 class="text-lg font-bold mb-2">Card 2</h2>
-          <p>Conteúdo do Card 2...</p>
+          <p>Card 2...</p>
           <div class="absolute bottom-0 left-0 w-full h-8 rounded-b-md bg-yellow-300 opacity-50"></div>
         </div>
 
         <!-- Card 3 -->
         <div class="relative bg-white shadow-md rounded-md p-4 lg:w-64 h-44 md:w-64 h-22  border border-blue-500">
           <h2 class="text-lg font-bold mb-2">Card 3</h2>
-          <p>Conteúdo do Card 3...</p>
+          <p>Card 3...</p>
           
           <div class="absolute bottom-0 left-0 w-full h-8 rounded-b-md bg-blue-300 opacity-50"></div>
         </div>
@@ -36,7 +36,7 @@ import Sidebar from '@/Components/Sidebar/Sidebar.vue';
         <!-- Card 4 -->
         <div class="relative bg-white shadow-md rounded-md p-4 lg:w-64 h-44 md:w-64 h-22  border border-red-500">
           <h2 class="text-lg font-bold mb-2">Card 4</h2>
-          <p>Conteúdo do Card 4...</p>
+          <p>Card 4...</p>
           <div class="absolute bottom-0 left-0 w-full h-8 rounded-b-md bg-red-300 opacity-50"></div>
         </div>
       </div>
@@ -49,26 +49,26 @@ import Sidebar from '@/Components/Sidebar/Sidebar.vue';
         <!-- Card 1 -->
         <div class=" bg-white  rounded-md p-4 w-90 h-36 border-2 border-gray-300 ">
           <h2 class="text-lg font-bold mb-2">Card 1</h2>
-          <p>Conteúdo do Card 1...</p>
+          <p>Card 1...</p>
         </div>
 
         <!-- Card 2 -->
         <div class=" bg-white  rounded-md p-4 w-90 h-36 border-2  border-gray-300">
           <h2 class="text-lg font-bold mb-2">Card 2</h2>
-          <p>Conteúdo do Card 2...</p>
+          <p>Card 2...</p>
         </div>
 
         <!-- Card 3 -->
         <div class=" bg-white rounded-md p-4 w-90 h-36 border-2  border-gray-300">
           <h2 class="text-lg font-bold mb-2">Card 3</h2>
-          <p>Conteúdo do Card 3...</p>
+          <p>Card 3...</p>
           
         </div>
 
         <!-- Card 4 -->
         <div class=" bg-white rounded-md p-4 w-90 h-36 border-2  border-gray-300">
           <h2 class="text-lg font-bold mb-2">Card 4</h2>
-          <p>Conteúdo do Card 4...</p>
+          <p>Card 4...</p>
         </div>
       </div>
 
