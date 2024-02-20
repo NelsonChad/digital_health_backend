@@ -96,7 +96,7 @@
               Geral
           </div>
 
-        @if (Auth::user()->type == '1')
+        @if (Auth::user()->role == '1')
           <!-- Nav Item - Pages Collapse Menu -->
     
 
