@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +20,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/home/category', [App\Http\Controllers\CategoryController::class, 'index'])->name('category');
+Route::get('home/add-category', [App\Http\Controllers\CategoryController::class, 'create'])->name('create');
+Route::post('home/add-category', [App\Http\Controllers\CategoryController::class, 'store'])->name('store');
+Route::get('home/list-category', [App\Http\Controllers\CategoryController::class, 'index'])->name('list.index');
+
+Route::prefix('admin')->group(function () {
+
+    Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class,'index']);
+    
+});

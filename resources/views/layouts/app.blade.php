@@ -28,7 +28,7 @@
       <link rel="dns-prefetch" href="//fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  
+      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
   
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -83,7 +83,7 @@
 
           <!-- Nav Item - Dashboard -->
           <li class="nav-item active">
-              <a class="nav-link" href="{{ url('/admin') }}">
+              <a class="nav-link" href="{{ url('/home') }}">
               <i class="fas fa-fw fa-tachometer-alt"></i>
               <span>Dashboard</span></a>
           </li>
@@ -98,7 +98,19 @@
 
         @if (Auth::user()->role == '1')
           <!-- Nav Item - Pages Collapse Menu -->
-    
+          <li class="nav-item">
+              <a class="nav-link collapsed" href="{{url('home/category')}}" data-toggle="collapse" data-target="#collapseConf" aria-expanded="true" aria-controls="collapseConf">
+              <i class="ri-bar-chart-grouped-line"></i>
+              <span>Category</span>
+              </a>
+              <div id="collapseConf" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                  <h6 class="collapse-header">configurações:</h6>
+                    <a class="collapse-item" href="{{url('home/add-category')}}">Adicionar</a>
+                    <a class="collapse-item" href="{{url('home/list-category')}}">Lista</a>
+              </div>
+              </div>  
+          </li>
 
           <!-- Divider -->
           <hr class="sidebar-divider">
@@ -178,7 +190,7 @@
               <!-- Topbar Search -->
               
               <nav class="navbar navbar-expand-lg navbar-light ">
-              @if (false)
+              @if (true)
                 <a class="navbar-brand" href="#">Menu Farmácias</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
