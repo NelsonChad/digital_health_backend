@@ -71,7 +71,6 @@ class RegisterController extends Controller
              $data['avatar']->move("images/uploads/users", $avatar);
              $avatarName = $avatar;
          }
-         //dd($avatarName);
  
          return User::create([
              'name' => $data['name'],
