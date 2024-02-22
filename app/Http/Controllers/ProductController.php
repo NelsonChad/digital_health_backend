@@ -12,7 +12,11 @@ class ProductController extends Controller
     }
 
     public function create(){
-        $category = Category::all();
-        return view("products.create", compact("category"));
+        $categories = Category::all();
+        return view("products.create", compact("categories"));
+    }
+
+    public function store(Request $request){
+        
     }
 }
