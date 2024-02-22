@@ -37,7 +37,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware(['auth','isAdmin']); // open when autheticated and admin
     }
 
     /**
@@ -61,12 +61,29 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-    }
+   
+     protected function create(array $data)
+     {
+         $avatarName = null;
+         if (isset($data['avatar'])) {
+             $file = $data['avatar'];
+             $avatar = time() . '.' . $file->getClientOriginalExtension();
+             $data['avatar']->move("images/uploads/users", $avatar);
+             $avatarName = $avatar;
+         }
+ 
+         return User::create([
+             'name' => $data['name'],
+             'email' => $data['email'],
+             'avatar' => $avatarName,
+             'role'=> $data['role'],
+             'pharmacy_id'=> $data['pharmacy_id'],
+             'password' => Hash::make($data['password']),
+         ]);
+     }
+ 
+     public function edit($id) {
+         $user = User::find($id);
+         return view('auth.register', compact("user"));
+     }
 }

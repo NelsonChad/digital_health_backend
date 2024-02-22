@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('logo',30)->nullable();
             $table->string('slogan',20)->nullable();
-            $table->string('address',50)->nullable();
+            $table->string('address',100)->nullable();
             $table->string('latitude',25);
             $table->string('longitude',25);
             $table->string('open_time',50)->nullable();

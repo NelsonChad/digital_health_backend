@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container"> 
+        @include('includes.alerts')
        <!-- Begin Page Content -->
        <div>
 
