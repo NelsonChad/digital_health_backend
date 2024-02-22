@@ -17,6 +17,9 @@ class Products extends Model
         'code',
         'price',
         'description',
+        'brand_id'=> 1,
+        'category_id'=> 1,
+        'pharmacy_id'=> 1,
     ];
 
     public function products()

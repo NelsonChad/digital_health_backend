@@ -7,10 +7,19 @@
         <div class="card-header" style="display: flex; justify-content: space-between;">
             <h4>Adicionar Productos
             </h4>
-            <a href="{{url('/add-products')}}" class="btn btn-primary float-end">Adicionar Produtos</a>
+            <a href="{{url('home/add-products')}}" class="btn btn-primary float-end">Adicionar Produtos</a>
         </div>
         <div class="card-body">
-            <form action="{{ url('/add-products') }}" method="post">
+
+        @if ($errors-> any())
+        <div class="alert alert-danger">
+            @foreach( $errors->all() as $error)
+                <div>{{$error}}</div>
+            @endforeach
+        </div>
+          
+        @endif
+            <form action="{{ url('home/add-products') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row d-flex px-4" style="gap: 12px;">
                     <div class="mb-3" style="width: 45%;">

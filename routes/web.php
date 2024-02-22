@@ -30,7 +30,7 @@ Route::post('home/add-category', [App\Http\Controllers\CategoryController::class
 Route::get('home/list-category', [App\Http\Controllers\CategoryController::class, 'index'])->name('list.index');
 Route::get('home/products', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
 Route::get('home/add-products', [App\Http\Controllers\ProductController::class, 'create'])->name('create');
-Route::post('home/add-products', [App\Http\Controllers\ProductController::class, 'store'])->name('create');
+Route::post('home/add-products', [App\Http\Controllers\ProductController::class, 'store'])->name('store');
 
 
 Route::prefix('admin')->group(function () {
