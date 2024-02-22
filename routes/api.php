@@ -19,8 +19,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'api'], function(){
     Route::post('/products/search', [ProductsControllor::class, 'search']);
-    //Route::get('/products/search', [ProductsControllor::class, 'search']);
     Route::get('/pharmacies', [PharmaciesController::class, 'index']);
+});
+
+Route::group(['middleware' => ['auth'], 'namespace' => 'admin', 'prefix' => 'admin'], function () {
+    
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
