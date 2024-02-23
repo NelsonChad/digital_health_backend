@@ -29,11 +29,6 @@ class ProductFormRequest extends FormRequest
             ],
             'image' =>[
                 'file',
-                function ($attribute, $value, $fail) {
-                    if ($value->getClientOriginalExtension() !== 'png' || $value->getClientMimeType() !== 'image/png') {
-                        $fail('The ' . $attribute . ' field must be a file of type: png.');
-                    }
-                },
             ],
             'code' =>[
                 'required',
