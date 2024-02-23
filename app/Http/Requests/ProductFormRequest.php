@@ -44,7 +44,7 @@ class ProductFormRequest extends FormRequest
                 'required',
             ],
             'brand_id' =>[
-                'required'
+                'integer',
             ],
             'category_id' =>[],
             'pharmacy_id'=>[]

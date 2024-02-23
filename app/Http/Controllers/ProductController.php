@@ -15,9 +15,11 @@ class ProductController extends Controller
     }
 
     public function create(){
+        $products = Products::all();
         $categories = Category::all();
-        return view("products.create", compact("categories"));
+        return view("products.create", compact("categories", "products"));
     }
+
 
     public function store(ProductFormRequest $request){
         
@@ -34,13 +36,13 @@ class ProductController extends Controller
                 $product->image = $filename;
             }
         }
-        $product -> code = $data["code"];
-        $product -> price = $data["price"];
-        $product -> description = $data["description"];
-        $product->brand_id = $data['brand_id'];
-        $product->category_id = $data['category_id'];
-        $product->pharmacy_id = Auth::user()->pharmacy_id;
-        $product -> save();
+            $product -> code = $data["code"];
+            $product -> price = $data["price"];
+            $product -> description = $data["description"];
+            $product->brand_id = $data['brand_id']?? 1;
+            $product->category_id = $data['category_id']?? 1;
+            $product->pharmacy_id = Auth::user()->pharmacy_id;
+            $product -> save();
 
         return redirect("home/products") -> with("message","Produto adicionado com SECESSO");
     }

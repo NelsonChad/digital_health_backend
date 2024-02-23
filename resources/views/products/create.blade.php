@@ -32,12 +32,7 @@
                     </div>
                     <div class="mb-3" style="width: 30%;">
                         <label for="categoria">Marcas</label>
-                        <select name="categoria" class="form-control" id="categoria">
-                            <option value="">Selecione uma categoria</option>
-                            @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                            @endforeach
-                        </select>
+                        <input type="text" name="name" class="form-control" />
                     </div>
                     <div class="mb-3" style="width: 40%;">
                         <label for="">Nome do Produto</label>
@@ -81,14 +76,48 @@
 <div class="px-4">
     <div class="mt-4">
         @if (session('message'))
-            <div class="alert alert-success">{{ (session('message') }}</div>
+        <div class="alert alert-success">{{ (session('message') }}</div>
         @endif
-        <div class="card" style="display: flex; justify-content: space-between;">
+        <div class="" style="display: flex; justify-content: space-between;">
             <h4>Ver Productos
             </h4>
         </div>
         <div class="card-body">
-            Seus Productos
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Código</th>
+                        <th>Preço</th>
+                        <th>Descrição</th>
+                        <th>ID da Marca</th>
+                        <th>ID da Categoria</th>
+                        <th>ID da Farmácia</th>
+                        <th>Criado em</th>
+                        <th>Atualizado em</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($products as $product)
+                    <tr>
+                        <td>{{ $product->id }}</td>
+                        <td>{{ $product->code }}</td>
+                        <td>{{ $product->price }}</td>
+                        <td>{{ $product->description }}</td>
+                        <td>{{ $product->brand_id }}</td>
+                        <td>{{ $product->category_id }}</td>
+                        <td>{{ $product->pharmacy_id }}</td>
+                        <td>{{ $product->created_at }}</td>
+                        <td>{{ $product->updated_at }}</td>
+                        <td>
+                            <a href="#" class="btn btn-success">Editar</a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
         </div>
     </div>
 </div>
