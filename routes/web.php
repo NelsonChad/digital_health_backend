@@ -27,17 +27,17 @@ Route::group(['middleware' => ['auth','isAdmin'], 'namespace' => 'admin', 'prefi
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/home/category', [App\Http\Controllers\CategoryController::class, 'index'])->name('category');
-Route::get('home/add-category', [App\Http\Controllers\CategoryController::class, 'create'])->name('category.create');
-Route::get('home/add-brand', [App\Http\Controllers\CategoryController::class, 'create'])->name('brand.create');
-Route::post('home/add-category', [App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
-Route::post('home/brand/store', [App\Http\Controllers\CategoryController::class, 'storeBrend'])->name('brand.store');
-Route::get('home/list-category', [App\Http\Controllers\CategoryController::class, 'index'])->name('list.index');
-Route::get('home/products', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
-Route::get('home/add-products', [App\Http\Controllers\ProductController::class, 'create'])->name('create');
-Route::post('home/add-products', [App\Http\Controllers\ProductController::class, 'store'])->name('store');
-
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home/category', [App\Http\Controllers\CategoryController::class, 'index'])->name('category');
+    Route::get('home/add-category', [App\Http\Controllers\CategoryController::class, 'create'])->name('category.create');
+    Route::get('home/add-brand', [App\Http\Controllers\CategoryController::class, 'create'])->name('brand.create');
+    Route::post('home/add-category', [App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
+    Route::post('home/brand/store', [App\Http\Controllers\CategoryController::class, 'storeBrend'])->name('brand.store');
+    Route::get('home/list-category', [App\Http\Controllers\CategoryController::class, 'index'])->name('list.index');
+    Route::get('home/products', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
+    Route::get('home/add-products', [App\Http\Controllers\ProductController::class, 'create'])->name('create');
+    Route::post('home/add-products', [App\Http\Controllers\ProductController::class, 'store'])->name('store');
+});
 
 Route::prefix('admin')->group(function () {
 
