@@ -13,7 +13,20 @@ class ProductController extends Controller
 {
     public function index(){
 
-        return view("products.index");
+        $products = Products::
+        join("product_brands", "products.brand_id","=", "product_brands.id")
+        ->join("product_categories", "products.category_id","=", "product_categories.id")
+        ->select("products.id","products.name as product_name", "products.price","products.code", "products.created_at",
+         "product_brands.name as brand","product_categories.name as category","products.image")
+        ->get();
+
+        if (count($products) <= 0) {
+            $message = "Sem nenhum producto!";
+        } else {
+            $message = "";
+        }
+
+        return view("products.index", compact('products', 'message'));
     }
 
     public function create(){
@@ -25,7 +38,13 @@ class ProductController extends Controller
         ->get();
         $categories = Category::all();
         $brands = Product_brands::all();
-        return view("products.create", compact("categories", "products", "brands"));
+
+        if (count($products) <= 0) {
+            $message = "Sem nenhum producto!";
+        } else {
+            $message = "";
+        }
+        return view("products.create", compact("categories", "products", "brands", "message"));
     }
 
 

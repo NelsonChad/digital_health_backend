@@ -88,6 +88,7 @@
             </h4>
         </div>
         <div class="card-body">
+        @if(count($products) > 0)
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -118,6 +119,9 @@
                     @endforeach
                 </tbody>
             </table>
+        @else
+        <p class="alert alert-warning text-center">{{$message}}</p>
+        @endif
 
         </div>
     </div>
