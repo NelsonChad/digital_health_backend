@@ -64,7 +64,7 @@ class RegisterController extends Controller
    
      protected function create(array $data)
      {
-         $avatarName = null;
+         $avatarName = "default.png";
          if (isset($data['avatar'])) {
              $file = $data['avatar'];
              $avatar = time() . '.' . $file->getClientOriginalExtension();

@@ -133,8 +133,8 @@
               <div id="collapseConf" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                   <h6 class="collapse-header">configurações:</h6>
-                      <a class="collapse-item"  href="{{ route('register') }}">{{ __('Registar utilizadores') }}</a>
-                  <a class="collapse-item" href="#">Listar utilizadores</a>
+                      <a class="collapse-item"  href="{{ route('admin.users') }}">{{ __('Utilizadores') }}</a>
+                  <a class="collapse-item" href="#">{{ __('Farmacias') }}</a>
               </div>
               </div>
           </li>

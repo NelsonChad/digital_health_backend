@@ -14,11 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::group(['middleware' => ['auth','isAdmin'], 'namespace' => 'admin', 'prefix' => 'admin'], function () {
-    
+    Route::get('/users', [App\Http\Controllers\admin\UserController::class, 'index'])->name('admin.users');
+    Route::get('/users/show/{id}', [App\Http\Controllers\admin\UserController::class, 'show'])->name('admin.user.show');
+    Route::get('/users/alter/{id}', [App\Http\Controllers\admin\UserController::class, 'edit'])->name('admin.user.edit');
+    Route::post('/users/update/{id}', [App\Http\Controllers\admin\UserController::class, 'update'])->name('admin.user.update');
+  
 });
 Auth::routes();
 
