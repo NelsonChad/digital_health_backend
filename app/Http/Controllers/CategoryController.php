@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CategoryFormRequest;
 use App\Models\Category;
+use App\Models\Product_brands;
+
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -11,7 +13,8 @@ class CategoryController extends Controller
     public function index(){
 
         $categories = Category::all();
-        return view("category.index", compact("categories"));   
+        $brands = Product_brands::all();
+        return view("category.index", compact("categories","brands"));   
     }
 
     public function create(){
@@ -26,7 +29,19 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect('home/category')->with('message', 'Adicionado com sucesso!');
+        return redirect('home/category')->with('message', 'Categoria adicionado com sucesso!');
+        
+    }
+
+    public function storeBrend(CategoryFormRequest $request){
+
+        $data = $request->validated();
+        $brand = new Product_brands;
+        $brand->name = $data["name"];
+
+        $brand->save();
+
+        return redirect('home/category')->with('message', 'Marca adicionado com sucesso!');
         
     }
     public function list(){

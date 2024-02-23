@@ -101,13 +101,12 @@
           <li class="nav-item">
               <a class="nav-link collapsed" href="{{url('home/category')}}" data-toggle="collapse" data-target="#collapseTree" aria-expanded="true" aria-controls="collapseConf">
               <i class="ri-bar-chart-grouped-line"></i>
-              <span>Category</span>
+              <span>Categoria e Marca</span>
               </a>
               <div id="collapseTree" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                   <h6 class="collapse-header">configurações:</h6>
-                    <a class="collapse-item" href="{{url('home/add-category')}}">Adicionar</a>
-                    <a class="collapse-item" href="{{url('home/list-category')}}">Lista</a>
+                    <a class="collapse-item" href="{{url('home/list-category')}}">Adicionar</a>
               </div>
               </div>  
           </li>
@@ -203,7 +202,7 @@
               <!-- Topbar Search -->
               
               <nav class="navbar navbar-expand-lg navbar-light ">
-              @if (true)
+              @if (false)
                 <a class="navbar-brand" href="#">Menu Farmácias</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
