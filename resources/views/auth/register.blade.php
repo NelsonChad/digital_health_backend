@@ -137,7 +137,8 @@
                 </div>
             </div>
         </div>
-            <br><br>
+        <br><br>
+        @if(@isset($users))   
             @if (count($users) > 0)
             <h5>Lista de Utilizadores </h5>
                 <div class="table">
@@ -177,5 +178,6 @@
             @else
                 <p class="alert alert-warning text-center">{{ $message }}</p>
             @endif
+        @endisset
     </div>
 @endsection
