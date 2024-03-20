@@ -159,6 +159,7 @@
                   <h6 class="collapse-header">configurações:</h6>
                       <a class="collapse-item"  href="{{ route('admin.users') }}">{{ __('Utilizadores') }}</a>
                   <a class="collapse-item" href="#">{{ __('Farmacias') }}</a>
+                  <a class="collapse-item" href="{{url('home/supliers')}}">{{ __('Fornecedores') }}</a>
               </div>
               </div>
           </li>
