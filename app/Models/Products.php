@@ -22,8 +22,9 @@ class Products extends Model
         'pharmacy_id'=> 1,
     ];
 
-    public function products()
+    public function pharmacies()
     {
-        return $this->belongsToMany(Products::class);
+        return $this->belongsToMany(Pharmacies::class);
     }
+
 }

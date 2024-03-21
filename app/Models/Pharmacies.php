@@ -10,9 +10,11 @@ class Pharmacies extends Model
 {
     use HasFactory;
 
-    public function pharmacies()
+    protected $table = 'pharmacies';
+
+    public function products()
     {
-        return $this->belongsToMany(Pharmacies::class);
+        return $this->belongsToMany(Products::class);
     }
 
     public function search(String $prodName){

@@ -22,8 +22,13 @@ Route::group(['middleware' => ['auth','isAdmin'], 'namespace' => 'admin', 'prefi
     Route::get('/users/show/{id}', [App\Http\Controllers\admin\UserController::class, 'show'])->name('admin.user.show');
     Route::get('/users/alter/{id}', [App\Http\Controllers\admin\UserController::class, 'edit'])->name('admin.user.edit');
     Route::post('/users/update/{id}', [App\Http\Controllers\admin\UserController::class, 'update'])->name('admin.user.update');
-  
+    Route::get('/pharmacies', [App\Http\Controllers\admin\PharmaciesController::class, 'index'])->name('admin.pharmacies');
+
+    Route::post('/parmacies/store', [App\Http\Controllers\admin\PharmaciesController::class, 'store'])->name('admin.pharmacy.store');
+    Route::post('/pharmacies/update/{id}', [App\Http\Controllers\admin\PharmaciesController::class, 'update'])->name('admin.pharmacy.update');
+
 });
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -39,9 +44,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('home/add-products', [App\Http\Controllers\ProductController::class, 'store'])->name('store');
     Route::get('home/supliers', [App\Http\Controllers\SuplierController::class, 'index'])->name('suppliers');
     Route::post('home/supliers', [App\Http\Controllers\SuplierController::class, 'store'])->name('suppliers');  
-
-    Route::get('home/pharmacies', [App\Http\Controllers\PharmacyController::class, 'index'])->name('pharmacies');
-    Route::post('home/pharmacies', [App\Http\Controllers\PharmacyController::class, 'store'])->name('pharmacies');
 });
 
 Route::prefix('admin')->group(function () {
