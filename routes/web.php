@@ -41,6 +41,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('home/supliers', [App\Http\Controllers\SuplierController::class, 'store'])->name('suppliers');  
 
     Route::get('home/pharmacies', [App\Http\Controllers\PharmacyController::class, 'index'])->name('pharmacies');
+    Route::post('home/pharmacies', [App\Http\Controllers\PharmacyController::class, 'store'])->name('pharmacies');
 });
 
 Route::prefix('admin')->group(function () {

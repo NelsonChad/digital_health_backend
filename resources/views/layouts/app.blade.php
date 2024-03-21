@@ -158,7 +158,7 @@
               <div class="bg-white py-2 collapse-inner rounded">
                   <h6 class="collapse-header">configurações:</h6>
                       <a class="collapse-item"  href="{{ route('admin.users') }}">{{ __('Utilizadores') }}</a>
-                  <a class="collapse-item" href="#">{{ __('Farmacias') }}</a>
+                  <a class="collapse-item" href="{{url('home/pharmacies')}}">{{ __('Farmacias') }}</a>
                   <a class="collapse-item" href="{{url('home/supliers')}}">{{ __('Fornecedores') }}</a>
               </div>
               </div>
