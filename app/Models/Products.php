@@ -21,6 +21,7 @@ class Products extends Model
 
             if($prodName != ""){
                 $query->where('products.name','like',  "%{$prodName}%");
+                $query->where('pharmacies.visible',1);
             }
     
         })
