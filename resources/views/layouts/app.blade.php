@@ -158,11 +158,7 @@
               <div class="bg-white py-2 collapse-inner rounded">
                   <h6 class="collapse-header">configurações:</h6>
                       <a class="collapse-item"  href="{{ route('admin.users') }}">{{ __('Utilizadores') }}</a>
-<<<<<<< HEAD
-                  <a class="collapse-item" href="{{url('home/pharmacies')}}">{{ __('Farmacias') }}</a>
                   <a class="collapse-item" href="{{url('home/supliers')}}">{{ __('Fornecedores') }}</a>
-=======
->>>>>>> cbd389c86b4547da7fb2a00e191114004aab9c76
                   <a class="collapse-item" href="{{route('admin.pharmacies')}}">{{ __('Farmacias') }}</a>
               </div>
               </div>
