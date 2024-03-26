@@ -12,6 +12,18 @@ class Pharmacies extends Model
 
     protected $table = 'pharmacies';
 
+    protected $fillable = [
+        'name',
+        'logo',
+        'slogan',
+        'address',
+        'latitude',
+        'longitude',
+        'open_time',
+        'close_time',
+        'province_id'
+    ];
+
     public function products()
     {
         return $this->belongsToMany(Products::class);
