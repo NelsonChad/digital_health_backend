@@ -30,7 +30,7 @@
                 @endisset
                 <div class="card-body">
                     @if (isset($pharmacy))
-                        <form method="POST" action="{{ route('admin.pharmacy.update', $pharmacy->id) }}"
+                        <form method="POST" action="{{ route('admin.pharmacies.update', $pharmacy->id) }}"
                             enctype="multipart/form-data">
                         @else
                             <form method="POST" action="{{ route('admin.pharmacies.store') }}" enctype="multipart/form-data">
@@ -198,7 +198,7 @@
                                             <a class="btn btn-info btn-sm"  href="#" data-toggle="tooltip" title="Mais info"><i class="fa fa-eye"></i></a>
                                         </td>
                                         <td class="text-center">
-                                        <a class="btn btn-success btn-sm" href="#" data-toggle="tooltip" title="Alterar Dados"><i class="fa fa-pen"></i></a>
+                                        <a class="btn btn-success btn-sm" href="{{ route('admin.pharmacies.edit', $pharmacy->id) }}" data-toggle="tooltip" title="Alterar Dados"><i class="fa fa-pen"></i></a>
                                         </td>
                                     
                             @endforeach

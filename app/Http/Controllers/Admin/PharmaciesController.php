@@ -77,15 +77,38 @@ class PharmaciesController extends Controller
      */
     public function edit(string $id)
     {
-        pha
+        $pharmacy = Pharmacies::find($id);
+        $pharmacies = Pharmacies::get();
+
+        return view('admin.pharmacies.create-edit', compact('pharmacy','pharmacies'))->with('editPharmacy', true);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(PharmacyFormRequest $request, string $id)
     {
-        //
+        $LogoName = "default.png";
+        if (isset($request['logo'])) {
+            $file = $request['logo'];
+            $logo = time() . '.' . $file->getClientOriginalExtension();
+            $request['logo']->move("uploads/pharmacies", $logo);
+            $LogoName = $logo;
+        }
+
+        $response = Pharmacies::find($id)->update([
+            'name' => $request['name'],
+            'address' =>  $request['address'],
+            'latitude'=>  $request['latitude'],
+            'longitude'=>  $request['longitude'],
+            'open_time'=>  $request['open_time'],
+            'close_time'=>  $request['close_time'],
+        ]);
+
+        return redirect()
+            ->route('admin.pharmacies')
+            ->with('success', "ao Actualizar a Farmácia.")
+            ->withInput();
     }
 
     /**
