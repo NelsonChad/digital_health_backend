@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PharmacyFormRequest;
 use Illuminate\Http\Request;
 use App\Models\Pharmacies;
 
@@ -38,9 +39,29 @@ class PharmaciesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PharmacyFormRequest $request)
     {
-        //
+        $data = $request -> validated();
+        $pharmacy = new Pharmacies();
+        
+        $pharmacy -> name = $data["name"];
+        $pharmacy->address = $data['address'];
+        if (isset($data['logo'])) {
+            $file = $data['logo'];
+            $logo = time() . '.' . $file->getClientOriginalExtension();
+            $data['logo']->move("uploads/pharmacies", $logo);
+            $pharmacy->logo = $logo;
+        }
+
+        $pharmacy->latitude = $data['latitude'];
+        $pharmacy->longitude = $data['longitude'];
+        $pharmacy->open_time = $data['open_time'];
+        $pharmacy->close_time = $data['close_time'];
+        $pharmacy->province_id = $data['province_id']?? 1;
+        
+        $pharmacy->save();
+
+        return redirect()->route('admin.pharmacies')->with("message", "Farmácia registrada com sucesso.");
     }
 
     /**

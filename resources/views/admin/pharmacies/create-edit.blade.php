@@ -33,7 +33,7 @@
                         <form method="POST" action="{{ route('admin.pharmacy.update', $pharmacy->id) }}"
                             enctype="multipart/form-data">
                         @else
-                            <form method="POST" action="{{ route('admin.pharmacy.store') }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('admin.pharmacies.store') }}" enctype="multipart/form-data">
                     @endif
                     @csrf
 
@@ -109,7 +109,7 @@
                         <div class="form-group col-md-6">
                             <label for="cloese_time">{{ __('Hora de fechamento') }}</label>
                             <input id="cloese_time" type="time"
-                                class="form-control @error('cloese_time') is-invalid @enderror" name="cloese_time"
+                                class="form-control @error('cloese_time') is-invalid @enderror" name="close_time"
                                 value="{{ $pharmacy->cloese_time ?? old('cloese_time') }}" required autocomplete="open time" autofocus>
 
                             @error('cloese_time')
@@ -188,7 +188,7 @@
                             @foreach ($pharmacies as $pharmacy)
                                 <tr>
                                     <td>{{ $pharmacy->id }}</td>
-                                    <td><img width="50" height="50" class="img-profile rounded-circle" src="{{asset('uploads/pharmacies/'. $pharmacy->logo)}}"></td>
+                                    <td><img width="50" height="50" class="img-profile rounded-circle" src="{{asset('uploads/pharmacies/default.png'. $pharmacy->logo)}}"></td>
                                     <td>{{ $pharmacy->name }}</td>
                                     <td>{{ $pharmacy->address }}</td>
                                     <td>{{ $pharmacy->open_time }}</td>
