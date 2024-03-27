@@ -25,6 +25,7 @@ Route::group(['middleware' => ['auth','isAdmin'], 'namespace' => 'admin', 'prefi
     Route::get('/pharmacies', [App\Http\Controllers\admin\PharmaciesController::class, 'index'])->name('admin.pharmacies');
 
     Route::post('/pharmacies', [App\Http\Controllers\admin\PharmaciesController::class, 'store'])->name('admin.pharmacies.store');
+    Route::get('/pharmacies/alter/{id}', [App\Http\Controllers\admin\PharmaciesController::class, 'edit'])->name('admin.pharmacies.edit');
     Route::post('/pharmacies/update/{id}', [App\Http\Controllers\admin\PharmaciesController::class, 'update'])->name('admin.pharmacies.update');
 });
 
