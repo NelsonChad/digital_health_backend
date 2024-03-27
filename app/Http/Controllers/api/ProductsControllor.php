@@ -52,7 +52,7 @@ class ProductsControllor extends Controller
         try{
        
             $pharmacies = $this->products->search($productName);
-            return response()->json(['message' => 'Farmmacias Enconradas!', 'farmacias' => $pharmacies, 'status' => true], 201);
+            return response()->json(['message' => 'Farmmacias Enconradas!', 'pharmacies' => $pharmacies, 'status' => true], 201);
 
         } catch (\Exception $e){
             if(config('app.debug')){
