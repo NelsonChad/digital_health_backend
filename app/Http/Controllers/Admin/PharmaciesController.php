@@ -99,6 +99,7 @@ class PharmaciesController extends Controller
         $response = Pharmacies::find($id)->update([
             'name' => $request['name'],
             'address' =>  $request['address'],
+            'logo' => $LogoName,
             'latitude'=>  $request['latitude'],
             'longitude'=>  $request['longitude'],
             'open_time'=>  $request['open_time'],
